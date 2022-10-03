@@ -50,8 +50,10 @@ public class Main {
     public static void task5() {
         // Напишите программу, которая выводит в консоль все високосные года, начиная с 1904 года до 2096.
         // В консоль результат должен выводиться в формате “… год является високосным”
-        for (int year=1904; year<=2094; year+=4) {
+        for (int year=1904; year<=2094; year++) {
+            if(year%400==0 && year%100==0 || year%4==0){
             System.out.println(year + " год является високосным");
+            }
         }
         System.out.println();
     }
@@ -73,6 +75,7 @@ public class Main {
         }
         System.out.println();
     }
+
     public static void task8() {
         // Посчитайте с помощью цикла for сумму годовых накоплений, если каждый месяц вы будете откладывать
         // по 29 000 рублей “в банку”.
@@ -87,9 +90,11 @@ public class Main {
         // Перепишите решение задачи выше при условии, что деньги вы откладывать будете не “в банку”,
         // а в банк под проценты – 12% годовых. Выведите сумму накоплений за каждый месяц в консоль в формате
         // “Месяц …, сумма накоплений равна … рублей”
+        double BankTotal = 0;
+        double putOnBank = 29_000;
         for (int i = 1; i <= 12; i++) {
-            double y = i * 29_000 * 1.01;
-            System.out.println("Месяц "+ i +" сумма накоплений равна " + Math.round(y)  + " рублей");
+            BankTotal = (BankTotal + putOnBank) * 1.01;
+            System.out.println("Месяц "+ i +" сумма накоплений равна " + Math.round(BankTotal)  + " рублей");
         }
         System.out.println();
     }
